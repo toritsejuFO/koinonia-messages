@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/index.css" />
+    <title>Find Messages</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="search">
+        <% if (locals.message) { %>
+        <div class="<%= message.class %>">
+          <p><%= message.text %></p>
+        </div>
+        <% } %>
+
+        <p style="line-height: 30px;">
+          For the title, if you don't know the full message name, you can type in one word, part of a word (from the beginning e.g "dee" from "deeper", "epe" would not work),
+          a single beginning letter of any word (e.g "a", "c", "t", "d" or "r" from "a call to deeper realms") or multiple words you remember.
+        </p>
+
+        <form action="/index" method="post">
+          <input type="text" name="title" id="title" placeholder="Message Title" value="<%= title %>" />
+
+          <select name="category" id="category">
+            <option value="">Select a category</option>
+            <option value="SPIRITUAL GROWTH AND TRANSFORMATION">SPIRITUAL GROWTH AND TRANSFORMATION</option>
+            <option value="PURPOSE AND DESTINY">PURPOSE AND DESTINY</option>
+            <option value="BUSINESS, FINANCE AND KINGDOM ECONOMICS">BUSINESS, FINANCE AND KINGDOM ECONOMICS</option>
+            <option value="RELATIONSHIP AND FAMILY LIFE">RELATIONSHIP AND FAMILY LIFE</option>
+            <option value="LEADERSHIP, SUCCESS AND PERSONAL DEVELOPMENT">LEADERSHIP, SUCCESS AND PERSONAL DEVELOPMENT</option>
+            <option value="PRAYER, FASTING AND SPIRITUAL EMPHASIS">PRAYER, FASTING AND SPIRITUAL EMPHASIS</option>
+            <option value="MIRACLE SERVICES">MIRACLE SERVICES</option>
+          </select>
+
+          <select name="year" id="year">
+            <option value="">Select a year</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+          </select>
+
+          <select name="minister" id="minister">
+            <option selected value="Apostle Joshua Selman Nimmak">Apostle Joshua Selman Nimmak</option>
+          </select>
+
+          <button>Search</button>
+        </form>
+      </div>
+
+      <div class="table">
+        <table>
+          <tr>
+            <th>Message</th>
+            <th>Category</th>
+            <th>Year</th>
+            <th>Minister</th>
+          </tr>
+
+          <% if (locals.messages && messages.length === 0) { %>
+          <p>Can't find any messages that match your search</p>
+          <% } else if (locals.messages && messages.length > 0) { %> <% messages.forEach(function (message) { %>
+          <tr>
+            <td><%= message.title %></td>
+            <td><%= message.category %></td>
+            <td><%= message.year %></td>
+            <td><%= message.minister %></td>
+          </tr>
+          <% })} else { %>
+          <p class="failed">There seems to be an error. Please try again.</p>
+          <% } %>
+        </table>
+      </div>
+    </main>
+  </body>
+
+  <script src="public/js/global.js"></script>
+</html>

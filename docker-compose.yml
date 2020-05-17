@@ -1,0 +1,14 @@
+version: '3.2'
+
+services:
+  app:
+    build: .
+    ports:
+      - 3333:3333
+
+  mongo:
+    image: mongo
+    ports:
+      - 27018:27017
+    volumes:
+      - ./data:/data/db
