@@ -17,8 +17,9 @@
         <% } %>
 
         <p style="line-height: 30px;">
-          For the title, if you don't know the full message name, you can type in one word, part of a word (from the beginning e.g "dee" from "deeper", "epe" would not work),
-          a single beginning letter of any word (e.g "a", "c", "t", "d" or "r" from "a call to deeper realms") or multiple words you remember.
+          For the title, if you don't know the full message name, you can type in one word, part of a word (from the beginning e.g "dee"
+          from "deeper", "epe" would not work), a single beginning letter of any word (e.g "a", "c", "t", "d" or "r" from "a call to deeper
+          realms") or multiple words you remember.
         </p>
 
         <form action="/" method="post">
@@ -71,8 +72,11 @@
           <% } else if (locals.messages && messages.length > 0) { %> <% messages.forEach(function (message) { %>
           <tr>
             <td><%= message.title %></td>
-            <td><%= message.category %></td>
-            <td><%= message.year %></td>
+            <td>
+              <%= message.category %>
+              <!-- <a href="http://" target="_blank" rel="noopener noreferrer"><img src="public/images/download.png" alt="" /></a> -->
+            </td>
+            <td><%= message.year %> <a href="http://" target="_blank" rel="noopener noreferrer"></a></td>
             <td><%= message.minister %></td>
           </tr>
           <% })} else { %>
