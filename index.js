@@ -16,8 +16,8 @@ app.use(express.urlencoded())
 
 app.get('/create', controller.getCreatePage)
 app.post('/create', controller.createPage)
-app.get('/index', controller.getIndexPage)
-app.post('/index', controller.indexPage)
+app.get('/', controller.getIndexPage)
+app.post('/', controller.indexPage)
 
 app.use((_, res, __) => {
   return res.render('404')

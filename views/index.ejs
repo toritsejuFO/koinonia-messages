@@ -22,7 +22,7 @@
         </p>
 
         <form action="/index" method="post">
-          <input type="text" name="title" id="title" placeholder="Message Title" value="<%= title %>" />
+          <input type="text" name="title" id="title" placeholder="Message Title" value="<%= title || '' %>" />
 
           <select name="category" id="category">
             <option value="">Select a category</option>
