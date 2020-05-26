@@ -43,7 +43,7 @@ module.exports = {
 
     const query = {}
 
-    if (title) query.title = new RegExp(`.*${oneLetter(title) ? title : capitalize(title)}.*`)
+    if (title) query.title = new RegExp(`.*${isOneLetter(title) ? title : capitalize(title)}.*`)
     if (category) query.category = category
     if (year) query.year = year
     if (minister) query.minister = minister
@@ -57,4 +57,4 @@ module.exports = {
   }
 }
 
-const oneLetter = (string) => string.length === 0
+const isOneLetter = (string) => string.length === 0

@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index",
+    "dev": "nodemon index",
     "start": "node index",
-    "run": "pm2 index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "pm2 index"
   },
   "keywords": [],
   "author": "",
