@@ -37,7 +37,7 @@ form > * {
   background-color: var(--white);
   height: 35px;
   font-size: 14px;
-  color: darkblue
+  color: darkslategray
 }
 
 input {
