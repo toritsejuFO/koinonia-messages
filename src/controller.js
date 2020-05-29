@@ -37,7 +37,7 @@ module.exports = {
     const options = {
       limit: req.query.limit || 10,
       page: req.query.page || 1,
-      populate: 'categoryLink'
+      sort: 'title'
     }
 
     const docs = await Model.paginate({}, options)
