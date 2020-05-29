@@ -33,27 +33,16 @@
 
           <select name="category" id="category">
             <option value="">Select a category</option>
-            <option value="SPIRITUAL GROWTH AND TRANSFORMATION">SPIRITUAL GROWTH AND TRANSFORMATION</option>
-            <option value="PURPOSE AND DESTINY">PURPOSE AND DESTINY</option>
-            <option value="BUSINESS, FINANCE AND KINGDOM ECONOMICS">BUSINESS, FINANCE AND KINGDOM ECONOMICS</option>
-            <option value="RELATIONSHIP AND FAMILY LIFE">RELATIONSHIP AND FAMILY LIFE</option>
-            <option value="LEADERSHIP, SUCCESS AND PERSONAL DEVELOPMENT">LEADERSHIP, SUCCESS AND PERSONAL DEVELOPMENT</option>
-            <option value="PRAYER, FASTING AND SPIRITUAL EMPHASIS">PRAYER, FASTING AND SPIRITUAL EMPHASIS</option>
-            <option value="MIRACLE SERVICES">MIRACLE SERVICES</option>
+            <% if (locals.categories && categories.length > 0) { %> <% categories.forEach(function (category) { %>
+            <option value="<%= category.name %>"><%= category.name %></option>
+            <% })} %>
           </select>
 
           <select name="year" id="year">
             <option value="">Select a year</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012</option>
-            <option value="2011">2011</option>
+            <% if (locals.years && years.length > 0) { %> <% years.forEach(function (year) { %>
+            <option value="<%= year.name %>"><%= year.name %></option>
+            <% })} %>
           </select>
 
           <select name="minister" id="minister">
@@ -80,13 +69,23 @@
             <td><%= message.title %></td>
             <td>
               <%= message.category %>
-              <a href="http://" target="_blank" rel="noopener noreferrer" title="Download on koinonia site via category page">
+              <a
+                href="https://<%= message.categoryLink %>"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download on koinonia site via category page"
+              >
                 <img src="public/images/download.jpg" alt="koinonia download link" />
               </a>
             </td>
             <td>
               <%= message.year %>
-              <a href="http://" target="_blank" rel="noopener noreferrer" title="Download on koinonia site via year page">
+              <a
+                href="https://<%= message.yearLink %>"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download on koinonia site via year page"
+              >
                 <img src="public/images/download.jpg" alt="koinonia download link" />
               </a>
             </td>

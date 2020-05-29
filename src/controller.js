@@ -1,8 +1,8 @@
-const { Model, capitalize } = require('./model')
+const { Model, capitalize, categories, years } = require('./model')
 
 module.exports = {
-  getCreatePage: (req, res) => {
-    return res.status(200).render('create')
+  getCreatePage: (_, res) => {
+    return res.status(200).render('create', { categories, years })
   },
 
   createPage: async (req, res) => {
@@ -13,7 +13,9 @@ module.exports = {
         message: {
           text: 'Title can not be empty',
           class: 'failed'
-        }
+        },
+        categories,
+        years
       })
     }
 
@@ -21,18 +23,21 @@ module.exports = {
 
     await newMessage.save()
 
-    return res.status(200).render('create', {
+    return res.status(201).render('create', {
       message: {
         text: 'Successfully added a new message',
         class: 'success'
-      }
+      },
+      categories,
+      years
     })
   },
 
   getIndexPage: async (req, res) => {
     const options = {
       limit: req.query.limit || 10,
-      page: req.query.page || 1
+      page: req.query.page || 1,
+      populate: 'categoryLink'
     }
 
     const docs = await Model.paginate({}, options)
@@ -40,7 +45,9 @@ module.exports = {
 
     return res.status(200).render('index', {
       messages: docs.docs || [],
-      paginationOptions
+      paginationOptions,
+      categories,
+      years
     })
   },
 
@@ -64,7 +71,9 @@ module.exports = {
     return res.render('index', {
       messages: docs.docs || [],
       title,
-      paginationOptions
+      paginationOptions,
+      categories,
+      years
     })
   }
 }
@@ -77,7 +86,6 @@ const getPaginationOptions = (docs) => {
   Object.keys(docs)
     .filter((key) => !['docs'].includes(key))
     .forEach((key) => (paginationOptions[key] = docs[key]))
-  console.log(paginationOptions)
 
   return paginationOptions
 }
