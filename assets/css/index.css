@@ -100,3 +100,28 @@ tr:nth-child(odd) {
 * {
   border: none;
 }
+
+img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Navigation */
+.nav-container {
+  margin-top: 20px;
+}
+
+.prev {
+  text-decoration: none;
+}
+
+.next {
+  float: right;
+  text-decoration: none;
+}
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
+  color: grey;
+}

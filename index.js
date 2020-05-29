@@ -24,6 +24,7 @@ app.use((_, res, __) => {
 })
 
 app.use((_, req, res, __) => {
+  console.log(_)
   return res.render(`${req.path.slice(1)}`, {
     message: {
       text: 'An error seemed to have occurred, please try again.',

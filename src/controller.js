@@ -30,31 +30,54 @@ module.exports = {
   },
 
   getIndexPage: async (req, res) => {
-    const messages = await Model.find({})
+    const options = {
+      limit: req.query.limit || 10,
+      page: req.query.page || 1
+    }
+
+    const docs = await Model.paginate({}, options)
+    const paginationOptions = getPaginationOptions(docs)
 
     return res.status(200).render('index', {
-      messages: messages || [],
-      title: ''
+      messages: docs.docs || [],
+      paginationOptions
     })
   },
 
   indexPage: async (req, res) => {
+    const options = {
+      limit: req.query.limit || 10,
+      page: req.query.page || 1
+    }
     const { title, category, year, minister } = req.body
-
     const query = {}
 
+    // build query
     if (title) query.title = new RegExp(`.*${isOneLetter(title) ? title : capitalize(title)}.*`)
     if (category) query.category = category
     if (year) query.year = year
     if (minister) query.minister = minister
 
-    const messages = await Model.find(query)
+    const docs = await Model.paginate(query, options)
+    const paginationOptions = getPaginationOptions(docs)
 
     return res.render('index', {
-      messages: messages || [],
-      title
+      messages: docs.docs || [],
+      title,
+      paginationOptions
     })
   }
 }
 
 const isOneLetter = (string) => string.length === 0
+
+const getPaginationOptions = (docs) => {
+  const paginationOptions = {}
+
+  Object.keys(docs)
+    .filter((key) => !['docs'].includes(key))
+    .forEach((key) => (paginationOptions[key] = docs[key]))
+  console.log(paginationOptions)
+
+  return paginationOptions
+}

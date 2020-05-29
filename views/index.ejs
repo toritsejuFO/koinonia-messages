@@ -23,7 +23,13 @@
         </p>
 
         <form action="/" method="post">
-          <input type="text" name="title" id="title" placeholder="Message Title" value="<%= title || '' %>" />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Message Title"
+            value="<% if (locals.title && title) {%> <%=title%> <% } %>"
+          />
 
           <select name="category" id="category">
             <option value="">Select a category</option>
@@ -74,15 +80,42 @@
             <td><%= message.title %></td>
             <td>
               <%= message.category %>
-              <!-- <a href="http://" target="_blank" rel="noopener noreferrer"><img src="public/images/download.png" alt="" /></a> -->
+              <a href="http://" target="_blank" rel="noopener noreferrer" title="Download on koinonia site via category page">
+                <img src="public/images/download.jpg" alt="koinonia download link" />
+              </a>
             </td>
-            <td><%= message.year %> <a href="http://" target="_blank" rel="noopener noreferrer"></a></td>
+            <td>
+              <%= message.year %>
+              <a href="http://" target="_blank" rel="noopener noreferrer" title="Download on koinonia site via year page">
+                <img src="public/images/download.jpg" alt="koinonia download link" />
+              </a>
+            </td>
             <td><%= message.minister %></td>
           </tr>
           <% })} else { %>
           <p class="failed">There seems to be an error. Please try again.</p>
           <% } %>
         </table>
+        <div class="nav-container">
+          <a
+            href="?page=<%= locals.paginationOptions && paginationOptions.prevPage %>"
+            class="prev <% if (locals.paginationOptions && !paginationOptions.hasPrevPage) { %> disabled <% } %>"
+          >
+            &#8592; Prev
+          </a>
+          <a
+            href="?page=<%= locals.paginationOptions && paginationOptions.nextPage %>"
+            class="next <% if (locals.paginationOptions && !paginationOptions.hasNextPage) { %> disabled <% } %>"
+          >
+            Next &#8594;
+          </a>
+        </div>
+        <div>
+          <p style="text-align: center;">
+            <% if (locals.paginationOptions) {%> Page <%= paginationOptions.page %> of <%= paginationOptions.totalPages %> (<%=
+            paginationOptions.totalDocs %> items) <% } %>
+          </p>
+        </div>
       </div>
     </main>
   </body>
