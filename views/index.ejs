@@ -27,7 +27,7 @@
             type="text"
             name="title"
             id="title"
-            placeholder="Message Title"
+            placeholder="Message title"
             value="<% if (locals.title && title) {%> <%=title%> <% } %>"
           />
 
@@ -95,6 +95,9 @@
           <p class="failed">There seems to be an error. Please try again.</p>
           <% } %>
         </table>
+      </div>
+
+      <div class="nav">
         <div class="nav-container">
           <a
             href="?page=<%= locals.paginationOptions && paginationOptions.prevPage %>"

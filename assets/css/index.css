@@ -2,42 +2,46 @@
   --blue: #2C98F0;
   --green: #1FCAC8;
   --white: #FFFFFF;
-  --l-blue: #95CBF6;
 }
 
 body {
   background-color: var(--blue);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: darkblue;
-  opacity:1;
 }
 
-div.table, div.search {
-  margin: auto;
-  margin-top: 50px;
-  background-color: var(--green);
-  width: 80%;
-  min-width: 1024px;
-  border-radius: 5px;
+*, *::after, *::before {
+  box-sizing: border-box;
 }
+
+main {
+  max-width: 1132px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+div.search, div.table, div.nav {
+  margin: 40px 0;
+  background-color: var(--green);
+  border-radius: 5px;
+  padding: 25px;
+}
+
 
 /* SEARCH */
-
-div.search {
-  padding: 25px 50px;
-}
-
 form {
-  display: inline;
+  display: flex;
+  flex-flow: row wrap;
   font-size: 14px;
 }
 
 form > * {
-  margin-right: 10px;
+  flex: 1;
   background-color: var(--white);
   height: 35px;
   font-size: 14px;
-  color: darkslategray
+  color: darkslategray;
+  margin: 10px;
 }
 
 input {
@@ -47,26 +51,23 @@ input {
 button {
   border-radius: 5px;
   padding: 0px 10px;
-  float: right;
 }
 
-.success {
-  color: darkgreen;
+button:hover {
+  color: var(--white);
+  background-color: darkslategray;
 }
 
-.failed {
-  color: red;
-}
 
 /* TABLE */
-
 div.table {
-  padding: 50px;
+  width: 100%;
   overflow-x: auto;
 }
 
 table {
   border-collapse: collapse;
+  min-width: 1132px;
   width: 100%;
 }
 
@@ -76,12 +77,10 @@ th {
 }
 
 td {
-  text-align: center;
   height: 35px;
 }
 
 th, td {
-  border-bottom: 1px solid var(--blue);
   text-align: left;
 }
 
@@ -106,7 +105,8 @@ img {
   height: 20px;
 }
 
-/* Navigation */
+
+/* NAVIGATION */
 .nav-container {
   margin-top: 20px;
 }
@@ -121,7 +121,37 @@ img {
 }
 
 .disabled {
-  cursor: default;
   pointer-events: none;
   color: grey;
+}
+
+
+/* EXTRAS */
+.success {
+  color: darkgreen;
+}
+
+.failed {
+  color: red;
+}
+
+
+/* CUSTOMIZATION FOR SMALLER SCREENS */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  form {
+    display: block;
+    overflow: hidden;
+  }
+
+  form > * {
+    width: 95%;
+    margin: auto;
+    height: 30px;
+    font-size: 12px;
+    margin: 10px;
+  }
 }

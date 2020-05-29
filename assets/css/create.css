@@ -2,7 +2,6 @@
   --blue: #2C98F0;
   --green: #1FCAC8;
   --white: #FFFFFF;
-  --l-blue: #95CBF6;
 }
 
 body {
@@ -12,16 +11,15 @@ body {
 }
 
 .form {
-  margin: auto;
-  margin-top: 50px;;
+  flex: .8;
+  margin: 50px auto;
   background-color: var(--green);
-  width: 400px;
-  padding: 50px;
+  max-width: 400px;
+  padding: 30px;
 }
 
 .group {
-  padding: 5px 10px;
-  margin: 5px 10px;
+  margin: 30px 0px;
 }
 
 .success, .failed {
@@ -36,10 +34,6 @@ body {
   color: red;
 }
 
-label {
-  margin-bottom: 50px;
-}
-
 p {
   margin-bottom: 5px;;
 }
@@ -51,6 +45,7 @@ input, select {
   background-color: var(--white);
   color: darkslategray;
   padding-left: 10px;
+  box-sizing: border-box;
 }
 
 button {
@@ -59,7 +54,12 @@ button {
   background-color: var(--white);
   color: darkslategray;
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 20px;
+}
+
+button:hover {
+  color: var(--white);
+  background-color: darkslategray;
 }
 
 * {
