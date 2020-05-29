@@ -66,3 +66,20 @@ button:hover {
   border: none;
   border-radius: 5px;
 }
+
+
+/* CUSTOMIZATION FOR SMALLER SCREENS */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  input, select {
+    height: 30px;
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+}
