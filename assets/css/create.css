@@ -1,19 +1,21 @@
 :root{
-  --blue: #2C98F0;
-  --green: #1FCAC8;
+  --darkest: #101528;
+  --darker: #212639;
+  --dark: #353C4E;
   --white: #FFFFFF;
+  --grey: #858B9B;
 }
 
 body {
-  background-color: var(--blue);
+  background-color: var(--darker);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: darkblue;
+  color: var(--white);
 }
 
 .form {
   flex: .8;
   margin: 50px auto;
-  background-color: var(--green);
+  background-color: var(--darkest);
   max-width: 400px;
   padding: 30px;
 }
@@ -27,7 +29,7 @@ body {
 }
 
 .success {
-  color: darkgreen;
+  color: green;
 }
 
 .failed {
@@ -35,7 +37,8 @@ body {
 }
 
 p {
-  margin-bottom: 5px;;
+  margin-bottom: 5px;
+  color: var(--grey);
 }
 
 input, select {
@@ -43,7 +46,7 @@ input, select {
   height: 35px;
   font-size: 14px;
   background-color: var(--white);
-  color: darkslategray;
+  color: var(--darkest);
   padding-left: 10px;
   box-sizing: border-box;
 }
@@ -52,14 +55,14 @@ button {
   margin: auto;
   padding: 10px 20px;
   background-color: var(--white);
-  color: darkslategray;
+  color: var(--dark);
   font-size: 14px;
   margin-top: 20px;
 }
 
 button:hover {
   color: var(--white);
-  background-color: darkslategray;
+  background-color: var(--dark);
 }
 
 * {

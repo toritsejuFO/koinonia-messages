@@ -83,7 +83,7 @@ Schema.virtual('categoryLink', {
   localField: 'categoryLink',
   foreignField: 'category'
 }).get(function () {
-  let link = '';
+  let link = ''
   categories.forEach((category) => {
     if (category.name === this.category) link = category.link
   })

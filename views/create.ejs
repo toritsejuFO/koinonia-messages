@@ -10,8 +10,8 @@
   <body>
     <form action="/create" method="post" class="form">
       <% if (locals.message) { %>
-      <div class="<%= message.class %> group">
-        <p><%= message.text %></p>
+      <div class="group">
+        <p class="<%= message.class %>"><%= message.text %></p>
       </div>
       <% } %>
 

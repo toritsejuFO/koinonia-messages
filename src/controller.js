@@ -37,7 +37,7 @@ module.exports = {
     const options = {
       limit: req.query.limit || 10,
       page: req.query.page || 1,
-      sort: 'title'
+      // sort: 'title'
     }
 
     const docs = await Model.paginate({}, options)
@@ -54,7 +54,8 @@ module.exports = {
   indexPage: async (req, res) => {
     const options = {
       limit: req.query.limit || 10,
-      page: req.query.page || 1
+      page: req.query.page || 1,
+      // sort: 'title'
     }
     const { title, category, year, minister } = req.body
     const query = {}
