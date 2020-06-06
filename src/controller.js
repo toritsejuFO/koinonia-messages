@@ -1,4 +1,5 @@
-const { Model, capitalize, categories, years } = require('./model')
+const { Model, categories, years } = require('./model')
+const { capitalize } = require('./utils')
 
 module.exports = {
   getCreatePage: (_, res) => {
@@ -36,7 +37,7 @@ module.exports = {
   getIndexPage: async (req, res) => {
     const options = {
       limit: req.query.limit || 10,
-      page: req.query.page || 1,
+      page: req.query.page || 1
       // sort: 'title'
     }
 
@@ -54,14 +55,17 @@ module.exports = {
   indexPage: async (req, res) => {
     const options = {
       limit: req.query.limit || 10,
-      page: req.query.page || 1,
+      page: req.query.page || 1
       // sort: 'title'
     }
     const { title, category, year, minister } = req.body
     const query = {}
 
+    // clean up title before search
+    title = title.trim()
+
     // build query
-    if (title) query.title = new RegExp(`.*${isOneLetter(title) ? title : capitalize(title)}.*`)
+    if (title) query.title = new RegExp(`.*${capitalize(title)}.*`)
     if (category) query.category = category
     if (year) query.year = year
     if (minister) query.minister = minister
@@ -77,8 +81,6 @@ module.exports = {
     })
   }
 }
-
-const isOneLetter = (string) => string.length === 1
 
 const getPaginationOptions = (docs) => {
   const paginationOptions = {}

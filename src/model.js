@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate-v2')
 
+const { capitalize } = require('./utils')
+
 const home = 'koinoniaglobal.org'
 const categories = [
   {
@@ -103,20 +105,6 @@ Schema.virtual('yearLink', {
 
 const Model = mongoose.model('Model', Schema)
 
-const capitalize = (value) => {
-  return value
-    .split(' ')
-    .map((str) => capitalizeSingleWord(str))
-    .join(' ')
-}
-
-const capitalizeSingleWord = (value) => {
-  if (!/[a-zA-Z]/.test(value[0])) {
-    return value[0] + value[1].toUpperCase() + value.slice(2).toLowerCase()
-  }
-  return value[0].toUpperCase() + value.slice(1).toLowerCase()
-}
-
 module.exports = {
   dbConnect: () => {
     console.log('MONGODB CONNECTION: connecting...')
@@ -134,7 +122,6 @@ module.exports = {
       })
   },
   Model,
-  capitalize,
   categories,
   years
 }
