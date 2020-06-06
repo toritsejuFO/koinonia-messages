@@ -61,11 +61,8 @@ module.exports = {
     const { title, category, year, minister } = req.body
     const query = {}
 
-    // clean up title before search
-    title = title.trim()
-
     // build query
-    if (title) query.title = new RegExp(`.*${capitalize(title)}.*`)
+    if (title) query.title = new RegExp(`.*${capitalize(title.trim())}.*`)
     if (category) query.category = category
     if (year) query.year = year
     if (minister) query.minister = minister
