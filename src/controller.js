@@ -62,7 +62,7 @@ module.exports = {
     const query = {}
 
     // build query
-    if (title) query.title = new RegExp(`.*${title.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}.*`, i)
+    if (title) query.title = new RegExp(title.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i')
     if (category) query.category = category
     if (year) query.year = year
     if (minister) query.minister = minister
