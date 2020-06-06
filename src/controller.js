@@ -71,7 +71,6 @@ module.exports = {
 
     return res.render('index', {
       messages: docs.docs || [],
-      title,
       paginationOptions,
       categories,
       years
