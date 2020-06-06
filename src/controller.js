@@ -78,7 +78,7 @@ module.exports = {
   }
 }
 
-const isOneLetter = (string) => string.length === 0
+const isOneLetter = (string) => string.length === 1
 
 const getPaginationOptions = (docs) => {
   const paginationOptions = {}
