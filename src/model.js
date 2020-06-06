@@ -111,6 +111,9 @@ const capitalize = (value) => {
 }
 
 const capitalizeSingleWord = (value) => {
+  if (!/[a-zA-Z]/.test(value[0])) {
+    return value[0] + value[1].toUpperCase() + value.slice(2).toLowerCase()
+  }
   return value[0].toUpperCase() + value.slice(1).toLowerCase()
 }
 
