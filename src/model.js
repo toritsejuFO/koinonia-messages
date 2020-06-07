@@ -60,6 +60,8 @@ const ministers = [
   'Promise Odion and Mike Kumekor and Gbenga Oseke',
   'Promise Odion and Gbenga Oseke and Pst Meshach Alfa',
   'Apostle Joshua Selman Nimmak and Pst Olufukeji Ejimi Adegbeye',
+  'Apostle Joshua Selman Nimmak and Pastor Iyke and Steve Strings and Rosemary',
+  'Olufukeji Ejimi Adegbeye and Ileanwa Meshack Alfa and Gbenga Oseke and Jacob Adeyinka',
   'Promise Odion and Isaac Adinoyi and Pst Meshack Alfa and Gbenga Oseke and Pst Olufukeji Adegbeye',
   'Promise Odion and Michael Kumekor Kehinde Omole and Pst Meshach Ileanwa Alfa and Gbenga Oseke and Pst Olufukeji Ejimi Adegbeye'
 ]
