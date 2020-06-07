@@ -50,14 +50,18 @@ const years = [
 
 const ministers = [
   'Apostle Joshua Selman Nimmak',
-  'Pastor Meshach Alfa',
   'Pst Dotun Reju',
   'Pst Jacob Adeyinka',
-  'Pst Stanley Ajayi Asishana',
+  'Pastor Meshach Alfa',
   'Prophet Jesse Jangfa',
+  'Pst Stanley Ajayi Asishana',
   'Pst. Olufukeji Ejimi Adegbeye',
+  'Pst Meshach Alfa and Pst Olufukeji Adegbeye',
+  'Promise Odion and Mike Kumekor and Gbenga Oseke',
+  'Promise Odion and Gbenga Oseke and Pst Meshach Alfa',
   'Apostle Joshua Selman Nimmak and Pst Olufukeji Ejimi Adegbeye',
-  'Pst Meshach Alfa and Pst Olufukeji Adegbeye'
+  'Promise Odion and Isaac Adinoyi and Pst Meshack Alfa and Gbenga Oseke and Pst Olufukeji Adegbeye',
+  'Promise Odion and Michael Kumekor Kehinde Omole and Pst Meshach Ileanwa Alfa and Gbenga Oseke and Pst Olufukeji Ejimi Adegbeye'
 ]
 
 const Schema = mongoose
