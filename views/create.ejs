@@ -48,14 +48,9 @@
         <label for="minister">
           <p>Minister</p>
           <select name="minister" id="minister">
-            <option value="Apostle Joshua Selman Nimmak">Apostle Joshua Selman Nimmak</option>
-            <option value="Pastor Meshach Alfa">Pastor Meshach Alfa</option>
-            <option value="Pst Dotun Reju">Pst Dotun Reju</option>
-            <option value="Pst Jacob Adeyinka">Pst Jacob Adeyinka</option>
-            <option value="Pst Stanley Ajayi Asishana">Pst Stanley Ajayi Asishana</option>
-            <option value="Apostle Joshua Selman Nimmak and Pst Olufukeji Ejimi Adegbeye">
-              Apostle Joshua Selman Nimmak and Pst Olufukeji Ejimi Adegbeye
-            </option>
+            <% if (locals.ministers && ministers.length > 0) { %> <% ministers.forEach(function (minister) { %>
+            <option value="<%= minister %>"><%= minister %></option>
+            <% })} %>
           </select>
         </label>
       </div>

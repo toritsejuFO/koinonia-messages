@@ -1,9 +1,8 @@
-const { Model, categories, years } = require('./model')
-const { capitalize } = require('./utils')
+const { Model, categories, years, ministers } = require('./model')
 
 module.exports = {
   getCreatePage: (_, res) => {
-    return res.status(200).render('create', { categories, years })
+    return res.status(200).render('create', { categories, years, ministers })
   },
 
   createPage: async (req, res) => {
@@ -16,7 +15,8 @@ module.exports = {
           class: 'failed'
         },
         categories,
-        years
+        years,
+        ministers
       })
     }
 
@@ -30,7 +30,8 @@ module.exports = {
         class: 'success'
       },
       categories,
-      years
+      years,
+      ministers
     })
   },
 
@@ -56,6 +57,7 @@ module.exports = {
       paginationOptions,
       categories,
       years,
+      ministers,
       searchParams: `title=${title || ''}&category=${category || ''}&year=${year || ''}&minister=${minister || ''}`
     })
   },
@@ -83,6 +85,7 @@ module.exports = {
       paginationOptions,
       categories,
       years,
+      ministers,
       searchParams: `title=${title || ''}&category=${category || ''}&year=${year || ''}&minister=${minister || ''}`
     })
   }

@@ -48,6 +48,16 @@ const years = [
   { name: '2011', link: `${home}/downloads/#1566982168409-1e3d0c6e-2bae` }
 ]
 
+const ministers = [
+  'Apostle Joshua Selman Nimmak',
+  'Pastor Meshach Alfa',
+  'Pst Dotun Reju',
+  'Pst Jacob Adeyinka',
+  'Pst Stanley Ajayi Asishana',
+  'Apostle Joshua Selman Nimmak and Pst Olufukeji Ejimi Adegbeye',
+  'Pst Meshach Alfa and Pst Olufukeji Adegbeye'
+]
+
 const Schema = mongoose
   .Schema(
     {
@@ -123,5 +133,6 @@ module.exports = {
   },
   Model,
   categories,
-  years
+  years,
+  ministers
 }
