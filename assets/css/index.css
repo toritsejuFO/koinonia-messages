@@ -2,7 +2,7 @@
   --darkest: #101528;
   --darker: #212639;
   --dark: #353C4E;
-  --white: #FFFFFF;
+  --white: #EEEEEE;
   --grey: #858B9B;
 }
 
@@ -58,6 +58,10 @@ button {
 button:hover {
   color: var(--white);
   background-color: var(--dark);
+}
+
+code {
+  color: indianred;
 }
 
 

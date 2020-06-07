@@ -17,9 +17,18 @@
         <% } %>
 
         <p style="line-height: 30px; text-align: justify;">
-          For the message title, if you don't know the full message name, you can type in one word, part of a word (from the beginning e.g
-          "dee" from "deeper", "epe" would not work), a single beginning letter of any word (e.g "a", "c", "t", "d" or "r" from "a call to
-          deeper realms") or multiple words you remember.
+          For the message title, if you don't know the full message name, you can still search with whatever part you know.
+          For example, in the message titled "a call to deeper realms", Possible matching search terms could be;
+          <ol>
+            <li>one word e.g <code>call</code>, <code>deeper</code></li>
+            <li>part of a word e.g <code>al</code>, <code>epe</code>, <code>dee</code>, even <code>lms</code></li>
+            <li>any single letter e.g
+              from the beginning: <code>a</code>, <code>c</code>, <code>t</code>, <code>d</code>, <code>r</code>;
+              middle: <code>e</code>, <code>p</code>;
+              or end: <code>o</code>, <code>l</code>, <code>m</code></li>
+            <li>any phrase (multiple [parts of] words) e.g <code>to deeper</code>, <code>per rea</code>, or even <code>l to dee</code></li>
+          </ol>
+          Case sensitivity is ignored in all search formats.
         </p>
 
         <form action="/" method="post">
@@ -32,21 +41,22 @@
           />
 
           <select name="category" id="category">
-            <option value="">Select a category</option>
+            <option value="">Select Category</option>
             <% if (locals.categories && categories.length > 0) { %> <% categories.forEach(function (category) { %>
             <option value="<%= category.name %>"><%= category.name %></option>
             <% })} %>
           </select>
 
           <select name="year" id="year">
-            <option value="">Select a year</option>
+            <option value="">Select Year</option>
             <% if (locals.years && years.length > 0) { %> <% years.forEach(function (year) { %>
             <option value="<%= year.name %>"><%= year.name %></option>
             <% })} %>
           </select>
 
           <select name="minister" id="minister">
-            <option selected value="Apostle Joshua Selman Nimmak">Apostle Joshua Selman Nimmak</option>
+            <option value="">Select Minister</option>
+            <option value="Apostle Joshua Selman Nimmak">Apostle Joshua Selman Nimmak</option>
             <option value="Pastor Meshach Alfa">Pastor Meshach Alfa</option>
             <option value="Pst Dotun Reju">Pst Dotun Reju</option>
             <option value="Pst Jacob Adeyinka">Pst Jacob Adeyinka</option>
