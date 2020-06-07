@@ -40,15 +40,23 @@ module.exports = {
       page: req.query.page || 1
       // sort: 'title'
     }
+    const { title, category, year, minister } = req.query
+    const query = {}
 
-    const docs = await Model.paginate({}, options)
+    if (title) query.title = new RegExp(title.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i')
+    if (category) query.category = category
+    if (year) query.year = year
+    if (minister) query.minister = minister
+
+    const docs = await Model.paginate(query, options)
     const paginationOptions = getPaginationOptions(docs)
 
     return res.status(200).render('index', {
       messages: docs.docs || [],
       paginationOptions,
       categories,
-      years
+      years,
+      searchParams: `title=${title || ''}&category=${category || ''}&year=${year || ''}&minister=${minister || ''}`
     })
   },
 
@@ -74,7 +82,8 @@ module.exports = {
       messages: docs.docs || [],
       paginationOptions,
       categories,
-      years
+      years,
+      searchParams: `title=${title || ''}&category=${category || ''}&year=${year || ''}&minister=${minister || ''}`
     })
   }
 }

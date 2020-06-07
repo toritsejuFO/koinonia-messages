@@ -117,13 +117,13 @@
       <div class="nav">
         <div class="nav-container">
           <a
-            href="?page=<%= locals.paginationOptions && paginationOptions.prevPage %>"
+            href="?page=<%= locals.paginationOptions && paginationOptions.prevPage %>&<%= locals.searchParams && searchParams %>"
             class="prev <% if (locals.paginationOptions && !paginationOptions.hasPrevPage) { %> disabled <% } %>"
           >
             &#8592; Prev
           </a>
           <a
-            href="?page=<%= locals.paginationOptions && paginationOptions.nextPage %>"
+            href="?page=<%= locals.paginationOptions && paginationOptions.nextPage %>&<%= locals.searchParams && searchParams %>"
             class="next <% if (locals.paginationOptions && !paginationOptions.hasNextPage) { %> disabled <% } %>"
           >
             Next &#8594;
