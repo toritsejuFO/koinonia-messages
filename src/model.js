@@ -54,6 +54,7 @@ const ministers = [
   'Pst Dotun Reju',
   'Pst Jacob Adeyinka',
   'Pst Stanley Ajayi Asishana',
+  'Prophet Jesse Jangfa',
   'Apostle Joshua Selman Nimmak and Pst Olufukeji Ejimi Adegbeye',
   'Pst Meshach Alfa and Pst Olufukeji Adegbeye'
 ]
