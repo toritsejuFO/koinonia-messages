@@ -16,13 +16,13 @@ body {
   box-sizing: border-box;
 }
 
-main {
+main, footer {
   max-width: 1132px;
   margin: 0 auto;
   padding: 0;
 }
 
-div.search, div.table, div.nav {
+div.search, div.table, div.nav, footer > div {
   margin: 40px 0;
   background-color: var(--darkest);
   border-radius: 5px;
@@ -58,10 +58,6 @@ button {
 button:hover {
   color: var(--white);
   background-color: var(--dark);
-}
-
-code {
-  color: indianred;
 }
 
 
@@ -146,6 +142,10 @@ a {
 
 .failed {
   color: red;
+}
+
+em {
+  color: indianred;
 }
 
 
